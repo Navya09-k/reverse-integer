@@ -1,2 +1,5 @@
-# reverse-integer
-The program reverses the digits of a signed integer while preserving its sign. It converts the number to a string, reverses the digits, and converts it back to an integer. If the reversed value exceeds the 32-bit signed range, it returns 0.
+class Solution:
+    def reverse(self, x: int) -> int:
+        s = -1 if x < 0 else 1
+        n = int(str(abs(x))[::-1]) * s
+        return n if -(1 << 31) <= n < (1 << 31) else 0
